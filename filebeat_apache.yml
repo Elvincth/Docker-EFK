@@ -1,0 +1,19 @@
+# filebeat.inputs:
+#   - type: log
+#     paths: /var/apache_logs/access.log
+#     json.keys_under_root: true
+filebeat.modules:
+  - module: apache
+    access:
+      enabled: true
+      var.paths: ["/var/apache_logs/access.log"]
+    error:
+      enabled: true
+      var.paths: ["/var/apache_logs/error.log"]
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  username: "elastic"
+  password: "root"
+  indices:
+    - index: "apache-%{[agent.version]}-%{+yyyy.MM.dd}"

@@ -1,0 +1,11 @@
+filebeat.inputs:
+  - type: log
+    paths: /var/logs/db_data/audit.log
+    json.keys_under_root: true
+
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  username: "elastic"
+  password: "root"
+  indices:
+    - index: "db-%{[agent.version]}-%{+yyyy.MM.dd}"
