@@ -6,6 +6,7 @@ server.host: 0.0.0.0
 elasticsearch.hosts: ["http://elasticsearch:9200"]
 monitoring.ui.container.elasticsearch.enabled: true
 
+#Input your own encryption key in production
 xpack.encryptedSavedObjects.encryptionKey: encryptedSavedObjects12345678909876543210
 xpack.security.encryptionKey: encryptionKeysecurity12345678909876543210
 xpack.reporting.encryptionKey: encryptionKeyreporting12345678909876543210
