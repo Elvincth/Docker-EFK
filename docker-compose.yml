@@ -7,7 +7,7 @@ services:
     volumes:
       - ./db_data:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./my.cnf:/etc/my.cnf.d/my.cnf
+      - ./my.cnf:/etc/my.cnf.d/my.cnf:ro
     ports:
       - "13306:3306"
     environment:
@@ -15,7 +15,7 @@ services:
       MYSQL_DATABASE: wordpress
       MYSQL_USER: wordpress
       MYSQL_PASSWORD: d2Oqadruj9*
-    # platform: linux/amd64 #for m1 chip remove it for non amd64 device
+    platform: linux/amd64 #for m1 chip remove it for non amd64 device
 
   wordpress:
     container_name: wordpress
